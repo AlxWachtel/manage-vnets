@@ -79,7 +79,7 @@ Role-based VMs such as Domain Controllers and DNS servers.
 
 ## Demo
 
-Let's create a VNet, two subnets, a VM in each one, and make sure we can RDP into both, and ping both.
+Let's create a VNet, three subnets, a VM in each one, make sure only Vm1 has a public IP, and make sure we can RDP into all, and ping all.
 
 ![alt text](img/4.png "Title")
 
@@ -107,8 +107,18 @@ Let's create a VNet, two subnets, a VM in each one, and make sure we can RDP int
     ```sh
     az network vnet show -g vnetdemo-rg -n Vnet1 --query "subnets"
     ``` 
+4. Next let's create the Subnet3
+    ```sh
+    az network vnet subnet create --name subnet3 --vnet-name Vnet1 -g vnetdemo-rg --address-prefixes 10.0.3.0/24
+    ```
 
-4. Create VM1
+    Let's run a query to make sure our Vnet1 has all subnets associated with it.
+
+    ```sh
+    az network vnet show -g vnetdemo-rg -n Vnet1 --query "subnets"
+    ``` 
+
+5. Create VM1
 
     ``` sh
     az vm create -g vnetdemo-rg -l eastus2 --image  MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest --vnet-name demovnet1 -n vm1 --subnet Subnet1
@@ -116,13 +126,19 @@ Let's create a VNet, two subnets, a VM in each one, and make sure we can RDP int
 
     Since we are using a Windows VM, port 3389 is opened automatically when we create it. 
 
-5. Create VM2
+6. Create VM2
 
     ``` sh
     az vm create -g vnetdemo-rg -l eastus2 --image  MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest --vnet-name demovnet1 -n vm2 --subnet Subnet2
     ```
 
-6. Remove the public IP from vm2
+7. Create VM3
+
+    ``` sh
+    az vm create -g vnetdemo-rg -l eastus2 --image  MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest --vnet-name demovnet1 -n vm2 --subnet Subnet2
+    ```
+
+8. Remove the public IP from vm2
 
     ```sh
     az network nic ip-config update --name ipconfigvm2 -g vnetdemo-rg --nic-name vm2VMNIC --remove PublicIpAddress
@@ -139,3 +155,26 @@ Let's create a VNet, two subnets, a VM in each one, and make sure we can RDP int
     ```sh
     az network nic ip-config list --nic-name vm2VMNIC -g vnetdemo-rg -o table
     ```
+
+9. Remove the public IP from vm3
+
+    ```sh
+    az network nic ip-config update --name ipconfigvm2 -g vnetdemo-rg --nic-name vm3VMNIC --remove PublicIpAddress
+    ```
+
+    You can use this command if you need to get the NIC of your VM.
+
+    ```sh
+    az vm nic list -g vnetdemo-rg --vm-name vm2
+    ```
+
+    You can use this command if you need to get the ip-config of your nic VM
+
+    ```sh
+    az network nic ip-config list --nic-name vm2VMNIC -g vnetdemo-rg -o table
+    ```
+
+10. Now let's RDP in the public facing VM.
+11. Next let's PING VM2 and VM3 from VM1.
+12. Next let's RDP into VM2 from VM1
+13. Finally let's RDP into VM3 from VM2.
