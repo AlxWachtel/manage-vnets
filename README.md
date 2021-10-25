@@ -31,7 +31,7 @@ Learn more!:
 
     - Point-to-site Virtual Private Networks
 
-        This approach is like a Virtual Private Network (VPN) connection that a computer outside your organization makes back into your corporate network, except that it's working in the opposite direction. In this case, the client computer initiates an encrypted VPN connection to Azure, connecting that computer to the Azure virtual network.
+         The client computer initiates an encrypted VPN connection to Azure, connecting that computer to the Azure virtual network.
 
     - Site-to-site Virtual Private Networks 
 
@@ -57,13 +57,13 @@ Learn more!:
 
         Azure virtual networks enable you to filter traffic between subnets by using the following approaches:
 
-    - Network security groups
+        - Network security groups
 
-        A network security group (NSG) is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
+            A network security group (NSG) is an Azure resource that can contain multiple inbound and outbound security rules. You can define these rules to allow or block traffic, based on factors such as source and destination IP address, port, and protocol.
 
-    - Network virtual appliances
+        - Network virtual appliances
 
-        A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing WAN optimization.
+            A network virtual appliance is a specialized VM that can be compared to a hardened network appliance. A network virtual appliance carries out a particular network function, such as running a firewall or performing WAN optimization.
 
 - **Connect virtual networks**
 
