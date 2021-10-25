@@ -131,7 +131,7 @@ Role-based VMs such as Domain Controllers and DNS servers.
 
 Let's create a VNet, three subnets, a VM in each one, make sure only Vm1 has a public IP, and make sure we can RDP into all, and ping all.
 
-![alt text](img/.svg "Title")
+![alt text](img/4.svg "Title")
 
 
 1. Create a resource group
