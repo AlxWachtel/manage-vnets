@@ -69,7 +69,7 @@ Learn more!:
 
     You can link virtual networks together using virtual network peering. Peering enables resources in each virtual network to communicate with each other. These virtual networks can be in separate regions, allowing you to create a global interconnected network through Azure.
 
-## What is an Azure Virtual Network (VNet)?
+## VNet use cases
 
 An Azure Virtual Network (VNet) is a representation of your own network in the cloud. It is a logical isolation of the Azure cloud dedicated to your subscription. 
 
