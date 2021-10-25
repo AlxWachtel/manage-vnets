@@ -99,7 +99,7 @@ Each subnet contains a range of IP addresses that fall within the VNet address s
     - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
     - x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets.
 
-![alt text](img/2.png "Title")
+![alt text](img/3.svg "Title")
 
 
 ## IP addressing
@@ -131,7 +131,7 @@ Role-based VMs such as Domain Controllers and DNS servers.
 
 Let's create a VNet, three subnets, a VM in each one, make sure only Vm1 has a public IP, and make sure we can RDP into all, and ping all.
 
-![alt text](img/4.svg "Title")
+![alt text](img/.svg "Title")
 
 
 1. Create a resource group
