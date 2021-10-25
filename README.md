@@ -4,6 +4,8 @@ Learn more!:
 
 - [Configure virtual networks](https://docs.microsoft.com/learn/modules/configure-virtual-networks/)
 - [Configure the network for your virtual machines](https://docs.microsoft.com/learn/modules/configure-network-for-azure-virtual-machines/)
+- [Azure VNet FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
+- [Azure Networking Deep Dive](https://social.technet.microsoft.com/wiki/contents/articles/52852.azure-networking-deep-dive-in-vnet-subnets.aspx)
 
  ## What is Azure virtual networking?
 
@@ -40,6 +42,12 @@ Each subnet contains a range of IP addresses that fall within the VNet address s
 - The range must be unique within the address space for the virtual network.
 - The range can't overlap with other subnet address ranges within the virtual network.
 - The address space must be specified by using the Classless Inter-Domain routing (CIDR) notation.
+- Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
+
+    - x.x.x.0: Network address
+    - x.x.x.1: Reserved by Azure for the default gateway
+    - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
+    - x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets.
 
 ![alt text](img/2.png "Title")
 
